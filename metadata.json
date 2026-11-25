@@ -1,0 +1,6 @@
+{
+  "name": "PULSE",
+  "description": "Find your rhythm. Move with purpose. Personal fitness, GPS workout, nourishment, hydration, and recovery tracker.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
