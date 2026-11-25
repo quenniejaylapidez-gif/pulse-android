@@ -60,7 +60,7 @@ export default function App() {
     return () => window.removeEventListener('gmp-quota-exceeded', onQuotaExceeded);
   }, []);
 
-  const savedTheme: ThemeId = appState?.preferences.theme ?? 'midnight-mint';
+  const savedTheme: ThemeId = appState?.preferences?.theme ?? 'midnight-mint';
   const effectiveTheme: ThemeId = previewTheme ?? savedTheme;
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function App() {
         pulseApi.getState(),
         pulseApi.getPublicConfig().catch(() => ({ googleMapsApiKey: '' })),
       ]);
-      setAppState(stateRes);
+      setAppState({ ...stateRes, preferences: { theme: 'midnight-mint', unitSystem: 'metric', dailyStepGoal: 8000, dailyHydrationGoalMl: 2250, weeklyDurationGoalMinutes: 150, mealRemindersEnabled: true, mealReminderEnabledMap: { breakfast: true, lunch: true, dinner: true, snack: false }, mealReminderTimes: { breakfast: '08:00', lunch: '12:30', dinner: '18:30', snack: '15:30' }, hydrationRemindersEnabled: false, hydrationReminderIntervalMinutes: 120, hydrationReminderStartTime: '09:00', hydrationReminderEndTime: '20:00', browserNotificationsEnabled: false, dismissedReminders: {}, showOvernightMealGap: false, shareActivitiesPublicly: false, shareLocationRoutes: false, ...stateRes.preferences } });
       if (cfgRes.googleMapsApiKey) {
         setMapsApiKey(cfgRes.googleMapsApiKey);
       }
