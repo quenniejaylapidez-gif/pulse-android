@@ -14,7 +14,7 @@ function showStartupError(message: string) {
 }
 
 window.addEventListener('error', (event) => {
-  showStartupError(event.message || 'Unknown JavaScript error');
+  showStartupError(event.error instanceof Error ? event.error.stack || event.message : event.message || 'Unknown JavaScript error');
 });
 
 window.addEventListener('unhandledrejection', (event) => {
